@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://192.168.1.153:1433;databaseName=TBS_EGL_new
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: FareAdmin
+    password: FareAdmin
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    test-on-borrow: true
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+    test-While-Idle: true
+    test-on-return: false
+    pool-prepared-statements: false
+    max-pool-prepared-statement-per-connection-size: 20
+    filters: stat,wall,log4j,config
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.hk3t.techson.springboottbs.bean  # 注意：对应实体类的路径
+server:
+  port: 8090
